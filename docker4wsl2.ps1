@@ -8,11 +8,6 @@ You must configure the desired distro by setting the $DOCKER_DISTRO variable ins
 Currently only Ubuntu distro is supported (latest LTS is recommended).
 
 .EXAMPLE
-wsl --install --distribution Ubuntu-20.04
-
-Install a WSL2 Ubuntu LTS distro.
-
-.EXAMPLE
 . docker4wsl2.ps1
 
 Dot-Source functions in current running PowerShell.
@@ -41,9 +36,6 @@ Install a Linux WSL2 distro: https://docs.microsoft.com/windows/wsl/install
 
 .LINK
 About dot operator: https://ss64.com/ps/source.html
-
-.LINK
-Install MS Terminal: https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701
 #>
 
 $DOCKER_DISTRO = "Ubuntu-20.04"
@@ -79,7 +71,7 @@ function docker-install-ubuntu {
 
 # Defines an alias to start the docker service from PowerShell command line
 function dockerd {
-    & wsl --distribution $DOCKER_DISTRO --user root dockerd -H $DOCKER_HOST -H "unix:///var/run/docker.sock"
+    wsl --distribution $DOCKER_DISTRO --user root dockerd -H $DOCKER_HOST -H "unix:///var/run/docker.sock"
 }
 
 # Defines an alias to call the docker client from PowerShell command line
