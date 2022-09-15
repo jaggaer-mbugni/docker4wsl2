@@ -16,6 +16,7 @@ PS> Set-ExecutionPolicy RemoteSigned
 ```
 
 #### TIPS
+Use Git to download and update the scripts used in this guide.
 Use the MS Terminal: https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701
 
 ## First setup
@@ -27,6 +28,7 @@ PS> wsl --install --distribution Ubuntu-20.04
 ```
 
 See https://docs.microsoft.com/windows/wsl/install for more info.
+NOTE: it could be required to restart the system.
 
 ### Edit the script to choose your distro
 ```shell
@@ -41,12 +43,9 @@ PS> . .\docker4wsl2.ps1
 
 #### TIPS
 To avoid to run the script manually, you can source it in your profile.
-First, check where your profile file is located:
+First, locate (or create) and edit your PowerShell profile file:
 ```powershell
-PS> $PROFILE.CurrentUserCurrentHost
-
-# This is just an example path: check your command output
-C:\MyUserProfilePath\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+PS> notepad $PROFILE.CurrentUserCurrentHost
 ```
 
 Then add the line into the `Microsoft.PowerShell_profile.ps1` file that dot-source the script:  
